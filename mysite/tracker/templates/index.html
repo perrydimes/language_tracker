@@ -1,0 +1,17 @@
+<table>
+  {% for date, listening, reading, anki in data %}
+    <tr>
+        <td>{{date.date}}</td>
+        <td>
+          <div>{{listening}} min</div>
+          <div>{{reading}} min</div>
+          <div>{{anki}} min</div>
+        </td>
+        <td>
+          <div>Listening</div>
+          <div>Reading</div>
+          <div>Anki</div>
+        </td>
+    </tr>
+  {% endfor %}
+</table>

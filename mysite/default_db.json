@@ -1,0 +1,26 @@
+[
+  {
+    "model":"tracker.Tag",
+    "pk":1,
+    "fields":{
+      "name": "Listening",
+      "associated_tags": []
+    }
+  },
+  {
+    "model":"tracker.Tag",
+    "pk":2,
+    "fields":{
+      "name": "Reading",
+      "associated_tags": []
+    }
+  },
+  {
+    "model":"tracker.Tag",
+    "pk":3,
+    "fields":{
+      "name": "Anki",
+      "associated_tags": []
+    }
+  }
+]
