@@ -1,0 +1,35 @@
+body {
+  color: #eee;
+  background: #121212;
+}
+ 
+a {
+  color: #809fff;
+}
+
+td
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* cal/static/cal/styles.css */
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.btn {
+  outline: none;
+  color: black;
+  background-color: transparent;
+  box-shadow: 0 0 0 0;
+}
+
+.clearfix {
+  margin: 15px;
+}

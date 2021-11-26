@@ -1,10 +1,12 @@
 from django.shortcuts import get_object_or_404, render
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Max, Min, Sum
-from .models import Entry, Tag
 from django.template import loader
+from django.urls import reverse
+from .models import Entry, Tag
+from .forms import EntryForm
 
 import datetime
 
@@ -12,7 +14,7 @@ import datetime
 def total_duration(date, tag_id):
     e = Entry.objects.filter(
         tags=Tag.objects.get(pk=tag_id),
-        date__date=date
+        date=date
     ).aggregate(Sum('duration'))
     if(e['duration__sum'] is None):
         return 0
@@ -33,3 +35,16 @@ def index(request):
         'data': data,
     }
     return HttpResponse(template.render(context, request))
+
+def entry(request, entry_id=None):
+    instance = Entry()
+    if entry_id:
+        instance = get_object_or_404(Entry, pk=entry_id)
+    else:
+        instance = Entry()
+
+    form = EntryForm(request.POST or None, instance=instance)
+    if request.POST and form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('index'))
+    return render(request, 'entry.html', {'form': form})

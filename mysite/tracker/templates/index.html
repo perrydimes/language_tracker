@@ -1,17 +1,34 @@
-<table>
-  {% for date, listening, reading, anki in data %}
-    <tr>
-        <td>{{date.date}}</td>
-        <td>
-          <div>{{listening}} min</div>
-          <div>{{reading}} min</div>
-          <div>{{anki}} min</div>
-        </td>
-        <td>
-          <div>Listening</div>
-          <div>Reading</div>
-          <div>Anki</div>
-        </td>
-    </tr>
-  {% endfor %}
-</table>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/journal.css' %}">
+
+
+<div class=container>
+  <div class="row">
+    <div class="col-md-12 text-white">
+      <h1> Immersion Journal </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-dark table-hover">
+        {% for date, listening, reading, anki in data %}
+          <tr>
+              <td>{{date}}</td>
+              <td>
+                <div>{{listening}} min</div>
+                <div>{{reading}} min</div>
+                <div>{{anki}} min</div>
+              </td>
+              <td>
+                <div>Listening</div>
+                <div>Reading</div>
+                <div>Anki</div>
+              </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+<div>
